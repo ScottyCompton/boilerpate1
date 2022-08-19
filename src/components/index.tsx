@@ -1,4 +1,10 @@
-import App from './App';
+import Product from './Product'
+import ProductList from './ProductList'
+import TestComponent from './TestComponent';
 
 
-export default App;
+export {
+    Product,
+    ProductList,
+    TestComponent
+}

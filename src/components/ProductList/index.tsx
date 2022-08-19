@@ -1,22 +1,18 @@
 import {useState, useEffect} from 'react';
-import Product from 'components/Product'
+import {Product} from 'components'
 import { IProductProps } from 'interfaces';
+import {http} from 'helpers'
 
 const Products:React.FC = () => {
     const [products, setProducts] = useState<IProductProps[]>([])
-    
 
     useEffect(() => {
-        fetch('https://dummyjson.com/products')
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            setProducts(data.products);
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+       http.getData('https://dummyjson.com/products')
+      .then((result) => {
+        setProducts(result.products)
+      })
+
+
     }, [])
 
     return (
